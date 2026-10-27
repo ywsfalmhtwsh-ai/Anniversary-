@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Happy 1 Year</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: #fdf8f4;
+      font-family: 'Cormorant Garamond', serif;
+      color: #5c4033;
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+      background-image: 
+        url('https://images.unsplash.com/photo-1490750967861-ce741d128989?w=400&q=60'),
+        url('https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=400&q=60');
+      background-size: 160px auto, 160px auto;
+      background-repeat: repeat-y, repeat-y;
+      background-position: left top, right top;
+      background-attachment: fixed;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 420px;
+      background: #fffaf5;
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(139, 90, 90, 0.12);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #f0e0d6;
+    }
+
+    .floral-top {
+      height: 65px;
+      background: linear-gradient(to bottom, #f8ebe3, #fffaf5);
+      background-image: url('https://images.unsplash.com/photo-1490750967861-ce741d128989?w=800&q=70');
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.85;
+      mask-image: linear-gradient(to bottom, black 35%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, black 35%, transparent);
+    }
+
+    .content {
+      padding: 16px 22px 28px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      background: #fff;
+      border: 1px solid #e8d5c8;
+      color: #7a5c4a;
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: #9c4a5a;
+      color: white;
+      border: none;
+      padding: 9px 18px;
+    }
+
+    .heart-wrap {
+      text-align: center;
+      margin: 8px 0 16px;
+    }
+
+    .heart {
+      width: 85px;
+      height: 85px;
+      margin: 0 auto;
+      background: url('https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=200&q=80') center/cover;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow: 0 6px 15px rgba(156, 74, 90, 0.2);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: #9c4a5a;
+      text-align: center;
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+
+    .for-line {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #8b6b5c;
+      margin-bottom: 2px;
+    }
+
+    /* Editable name & intro - clean, no doubling */
+    #herName, #intro {
+      display: block;
+      width: 100%;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      text-align: center;
+      outline: none;
+      color: #7a4a3a;
+    }
+
+    #herName {
+      font-size: 1.35rem;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+
+    #intro {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: #a07a6a;
+      margin-bottom: 18px;
+    }
+
+    /* Letter that grows with the page */
+    #letter {
+      width: 100%;
+      min-height: 200px;
+      border: none;
+      background: transparent;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      line-height: 1.75;
+      color: #5c4033;
+      resize: none;
+      outline: none;
+      overflow: hidden; /* important so it grows instead of scrolling */
+      padding: 0;
+    }
+
+    #letter::placeholder {
+      color: #c4a99a;
+      font-style: italic;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 30px;
+      font-size: 1.15rem;
+      color: #9c4a5a;
+      font-style: italic;
+    }
+
+    .signature input {
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 1.15rem;
+      color: #9c4a5a;
+      font-style: italic;
+      text-align: right;
+      width: 150px;
+      outline: none;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #b89a8a;
+    }
+
+    .floral-bottom {
+      height: 55px;
+      background-image: url('https://images.unsplash.com/photo-1490750967861-ce741d128989?w=800&q=70');
+      background-size: cover;
+      background-position: center bottom;
+      opacity: 0.8;
+      mask-image: linear-gradient(to top, black 25%, transparent);
+      -webkit-mask-image: linear-gradient(to top, black 25%, transparent);
+    }
+
+    /* View mode (when she opens the link) */
+    .view-mode #toolbar,
+    .view-mode #herName,
+    .view-mode #intro,
+    .view-mode #letter,
+    .view-mode .signature input {
+      display: none !important;
+    }
+
+    .view-letter {
+      display: none;
+      font-size: 1.2rem;
+      line-height: 1.75;
+      color: #5c4033;
+      white-space: pre-wrap;
+      min-height: 200px;
+    }
+
+    .view-mode .view-letter {
+      display: block;
+    }
+
+    .view-mode .view-name {
+      display: block;
+      text-align: center;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: #7a4a3a;
+      margin-bottom: 4px;
+    }
+
+    .view-mode .view-intro {
+      display: block;
+      text-align: center;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: #a07a6a;
+      margin-bottom: 18px;
+    }
+
+    .view-name, .view-intro { display: none; }
+  </style>
+</head>
+<body>
+  <div class="page" id="page">
+    <div class="floral-top"></div>
+
+    <div class="content">
+      <div class="toolbar" id="toolbar">
+        <button class="btn" onclick="copyText()">Copy</button>
+        <button class="btn" onclick="window.print()">Print</button>
+        <button class="btn" onclick="previewForHer()">For her</button>
+        <button class="btn primary" onclick="createHerLink()">Her link</button>
+      </div>
+
+      <div class="heart-wrap">
+        <div class="heart"></div>
+      </div>
+
+      <h1>Happy 1 year</h1>
+      <div class="for-line">for</div>
+
+      <!-- Only editable fields (no doubling) -->
+      <input type="text" id="herName" placeholder="her name" oninput="autoSave()">
+      <input type="text" id="intro" placeholder="a line just for her" oninput="autoSave()">
+
+      <!-- These only show in view mode -->
+      <div class="view-name" id="viewName"></div>
+      <div class="view-intro" id="viewIntro"></div>
+
+      <!-- Letter that grows the page -->
+      <textarea id="letter" 
+                placeholder="The whole year fits here. Start anywhere — a Tuesday, a song, the way she laughs — and don't stop until it's all down."
+                oninput="autoGrow(this); autoSave(); updateWordCount()"></textarea>
+
+      <div class="view-letter" id="viewLetter"></div>
+
+      <div class="signature">
+        always,<br>
+        <input type="text" id="yourName" placeholder="your name" oninput="autoSave()">
+      </div>
+
+      <div class="footer">
+        <span id="wordCount">No words yet · no limit</span>
+        <span>Saved on this device</span>
+      </div>
+    </div>
+
+    <div class="floral-bottom"></div>
+  </div>
+
+  <script>
+    // Load saved
+    const saved = JSON.parse(localStorage.getItem('anniversaryLetter') || '{}');
+    if (saved.name) document.getElementById('herName').value = saved.name;
+    if (saved.intro) document.getElementById('intro').value = saved.intro;
+    if (saved.letter) {
+      document.getElementById('letter').value = saved.letter;
+      autoGrow(document.getElementById('letter'));
+    }
+    if (saved.sign) document.getElementById('yourName').value = saved.sign;
+    updateWordCount();
+
+    // Check locked link
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      try {
+        const data = JSON.parse(decodeURIComponent(atob(hash)));
+        showForHer(data);
+      } catch(e) {}
+    }
+
+    function autoGrow(el) {
+      el.style.height = 'auto';
+      el.style.height = el.scrollHeight + 'px';
+    }
+
+    function autoSave() {
+      localStorage.setItem('anniversaryLetter', JSON.stringify({
+        name: document.getElementById('herName').value,
+        intro: document.getElementById('intro').value,
+        letter: document.getElementById('letter').value,
+        sign: document.getElementById('yourName').value
+      }));
+    }
+
+    function updateWordCount() {
+      const text = document.getElementById('letter').value.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      document.getElementById('wordCount').textContent = 
+        words === 0 ? 'No words yet · no limit' : words + ' words · no limit';
+    }
+
+    function copyText() {
+      navigator.clipboard.writeText(document.getElementById('letter').value)
+        .then(() => alert('Letter copied'));
+    }
+
+    function previewForHer() {
+      const data = getData();
+      showForHer(data);
+    }
+
+    function getData() {
+      return {
+        name: document.getElementById('herName').value || 'her name',
+        intro: document.getElementById('intro').value || 'a line just for her',
+        letter: document.getElementById('letter').value,
+        sign: document.getElementById('yourName').value || 'your name'
+      };
+    }
+
+    function showForHer(data) {
+      document.getElementById('page').classList.add('view-mode');
+      document.getElementById('viewName').textContent = data.name;
+      document.getElementById('viewIntro').textContent = data.intro;
+      document.getElementById('viewLetter').textContent = data.letter;
+      document.getElementById('yourName').value = data.sign;
+      document.getElementById('wordCount').textContent = 'Locked with love';
+    }
+
+    function createHerLink() {
+      const data = getData();
+      if (!data.letter.trim()) {
+        alert('Write something first');
+        return;
+      }
+      const encoded = btoa(encodeURIComponent(JSON.stringify(data)));
+      const link = location.origin + location.pathname + '#' + encoded;
+
+      navigator.clipboard.writeText(link).then(() => {
+        alert('Her special link is copied!\nSend this to her — she will only see the finished letter.');
+      }).catch(() => prompt('Copy this link:', link));
+    }
+  </script>
+</body>
+          </html>
